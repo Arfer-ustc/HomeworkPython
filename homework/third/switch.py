@@ -9,7 +9,6 @@ def showGray(inputfile,gray):
     plt.imshow(gray, cmap='gray')
 
     plt.axis('off')
-
     plt.show()
 
 
