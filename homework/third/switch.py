@@ -19,7 +19,7 @@ def savaGray(outputfile,gray):
 
 def main():
     #需要进行灰度转换的原彩色图片存储位置
-    inputfile='color.gif'
+    inputfile='color_.gif'
 
     #需要保存的转换后的图片名
     outputfile='gray.gif'
