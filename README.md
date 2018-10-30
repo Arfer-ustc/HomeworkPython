@@ -1,0 +1,4 @@
+# HomeworkPython
+python的作业
+此git文件记录了中国科学技术大学研究生一年级第一学期Python学习历程，主线以课堂练习以及python作业为主
+书本名称“Python.Programming.An.Introduction.to.Computer.Science.3rd.Edition_2018912212757838”
