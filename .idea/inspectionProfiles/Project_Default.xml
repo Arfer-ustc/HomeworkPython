@@ -10,6 +10,7 @@
           <option value="homework.forth.second.animation.input_dialog" />
           <option value="homework.forth.second.animation.button" />
           <option value="homework.forth.second.animation.*" />
+          <option value="homework.fifth.textpoker.pokerapp" />
         </list>
       </option>
     </inspection_tool>
