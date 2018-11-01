@@ -1,7 +1,7 @@
 from graphics import GraphWin, Text, Point
 
-from homework.fifth.dieview import DieView
-from homework.fifth.button import Button
+from homework.classPractice.dieview import DieView
+from homework.classPractice.button import Button
 
 
 class Graphicsinterface:

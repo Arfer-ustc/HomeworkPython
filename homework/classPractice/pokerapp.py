@@ -1,6 +1,6 @@
 from graphics import GraphWin, Text, Point
 
-from homework.fifth.Dice import Dice
+from homework.classPractice.Dice import Dice
 
 
 class PokerApp:
