@@ -26,9 +26,16 @@ class Graphicsinterface:
         self.buttons.append(b)
         b = Button(self.win, Point(570, 375), 40, 30, "Quit")
         self.buttons.append(b)
+        b = Button(self.win, Point(50, 375), 40, 30, "rule")
+        self.buttons.append(b)
         self.money = Text(Point(300, 325), "$100")
         self.money.setSize(18)
         self.money.draw(self.win)
+        self.Max=0
+        self.MaxRecord=Text(Point(300,350),"currentMaxrecord：${}".format(self.Max))
+        self.MaxRecord.setSize(18)
+        self.MaxRecord.setTextColor("red")
+        self.MaxRecord.draw(self.win)
 
     def createDice(self, center, size):
         center.move(- 3 * size,0)
@@ -48,6 +55,10 @@ class Graphicsinterface:
 
     def setMoney(self, amt):
         self.money.setText("${0}".format(amt))
+    def setMax(self,score):
+        if self.Max<score:
+            self.Max=score
+        self.MaxRecord.setText("currentMaxrecord：${}".format(self.Max))
 
     def showResult(self, msg, score):
         if score > 0:
@@ -55,14 +66,32 @@ class Graphicsinterface:
         else:
             text="You rolled {0}".format(msg)
         self.msg.setText(text)
+    def showRule(self):
+        text="1_The player starts with $100"+"\n"+\
+             "2_Each round costs $10,subtracted from the player's money at the start"+"\n"+\
+             "3_All five dice are rolled randomly" +"\n"+\
+             "4_The player gets two chances to enhance the hand by rerolling some or all of the dice" +"\n"+\
+             "5_At the end of the hand, the player's money is updated."
+        self.msg.setText(text)
 
     def setDice(self, values):
         for i in range(5):
             self.dice[i].setValue(values[i])
     def wantToPlay(self):
-        ans = self.choose(["Roll Dice", "Quit"])
+        ans = self.choose(["Roll Dice", "Quit","rule"])
         self.msg.setText("")
-        return ans == "Roll Dice"
+        # if ans=="Quit":
+        #     return "Quit"
+        #     self.close()
+        # elif ans=="rule":
+        #     return "rule"
+        # return "Roll Dice"
+        return ans
+    def wantToQuit(self):
+        ans = self.choose(["Roll Dice", "Quit","rule"])
+        self.msg.setText("")
+
+        return ans != "Quit"
 
     def choose(self, choices):
         buttons = self.buttons
