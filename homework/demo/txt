@@ -1,0 +1,25 @@
+pandas应用：
+Pandas对象对数据进行数据相关性分析，离散数据连续化等：
+相关性分析：
+print(data_train["Survived"].corr(data_train['Age']))
+print(data_train["Survived"].corr(data_train['Pclass']))
+data_train[data_train['Sex'] == 'male'] = 0
+data_train[data_train['Sex'] == 'female'] = 1
+print(data_train["Survived"].corr(data_train['Sex']))
+print(data_train["Survived"].corr(data_train['SibSp']))
+print(data_train["Survived"].corr(data_train['Parch']))
+print(data_train["Survived"].corr(data_train['Embarked']))
+print(data_train.corr())
+离散数据连续化：
+dummies_sex = pd.get_dummies(data_train["Sex"], prefix = "Sex")
+dummies_cabin = pd.get_dummies(data_train["Cabin"], prefix = "Cabin")
+dummies_embarked = pd.get_dummies(data_train["Embarked"], prefix = "Embarked")
+
+Numpy应用：
+Pandas对象可使用as_matrix转化为numpy对象，进而作为实参赋予函数，进行训练模型：
+test_np = test_df.as_matrix()
+print(test_np.shape)
+best_clf = LogisticRegression(C=1, penalty='l1', tol=1e-6, solver='liblinear')
+best_clf.fit(train_X, train_y)
+predictions = best_clf.predict(test_np)
+result = pd.DataFrame({'PassengerId':data_test['PassengerId'].as_matrix(), 'Survived':predictions.astype(np.int32)})
